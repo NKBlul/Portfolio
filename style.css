@@ -1,13 +1,43 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000;
-    text-align: center;
-    padding: 2rem;
+    font-size: 25px;
+    background-color: #141414; /*Website bg color*/
+    text-align: left;
+    margin: 0px 170px;
+    color: #7AE687;
 }
 
 header {
-    background-color: #222;
+    /*background-color: #222;*/
     color: white;
-    padding: 3rem;
     border-radius: 10px;
+    margin: 50px 0px;
+}
+
+h1 {
+    margin: 0;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 20px;
+    margin: 0;
+}
+
+.propic {
+    display: block;
+    margin-left: 0px;
+    border-radius: 50%;
+    width: 250px;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* gap between image and text */
+}
+
+.bio {
+    font-size: 35px;
+    color: #DCC7FF /*#7AE687*/;
 }
