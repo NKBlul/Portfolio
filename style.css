@@ -1,3 +1,15 @@
+/* Layout & general styling */
+body {
+    padding-top: 100px;
+    margin: 0 170px;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    background-color: #141414;
+    color: #7AE687;
+    text-align: left;
+}
+
+/* Header / Nav bar */
 .topbox {
     position: fixed;
     top: 0;
@@ -25,33 +37,38 @@
     background-color: #2f2f2f;
 }
 
-body {
-    padding-top: 100px; /* same as .topbox height */
-    font-family: Arial, sans-serif;
-    font-size: 25px;
-    background-color: #141414; /*Website bg color*/
-    text-align: left;
-    margin: 0px 170px;
+/* Links */
+a {
+    text-decoration: none;
     color: #7AE687;
 }
 
-header {
-    /*background-color: #222;*/
-    color: white;
+header.intro {
+    display: flex;
+    align-items: center;
+    gap: 60px;
     border-radius: 10px;
-    margin: 50px 0px;
+    margin: 50px 0;
 }
 
-h1 {
+.propic {
+    width: 250px;
+    border-radius: 50%;
+}
+
+.bio {
+    font-size: 35px;
+    color: #DCC7FF;
+}
+
+h1, h2 {
     margin: 0;
-    margin-top: 30px;
 }
 
 h2 {
-    margin: 0;
     margin-top: 125px;
     font-size: 50px;
-    text-align:center;
+    text-align: center;
 }
 
 p {
@@ -59,29 +76,10 @@ p {
     margin: 0;
 }
 
-.propic {
-    display: block;
-    margin-left: 0px;
-    border-radius: 50%;
-    width: 250px;
-    
-}
-
-.intro {
-    display: flex;
-    align-items: center;
-    gap: 60px; /* gap between image and text */
-}
-
-.bio {
-    font-size: 35px;
-    color: #DCC7FF /*#7AE687*/;
-}
-
 .portfolio-section {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
     text-align: center;
 }
@@ -92,7 +90,7 @@ p {
     align-items: center;
 }
 
-.portfolio-video{
+.portfolio-video {
     width: 750px;
     height: 750px;
 }
@@ -103,7 +101,6 @@ p {
     font-size: 20px;
 }
 
-a {
-    text-decoration: none;
-    color: #7AE687;
+html {
+    scroll-behavior: smooth;
 }
