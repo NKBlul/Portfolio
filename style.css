@@ -1,8 +1,7 @@
 .opening {
     position: relative;
     width: 99vw;
-    height: 89vh;
-    overflow: hidden;
+    height: 100vh;
     margin: 0 auto;
     left: calc(-1 * (100vw - 100%) / 2);
     z-index: 1;
@@ -37,7 +36,6 @@
 }
 
 body {
-    padding-top: 100px;
     margin: 0 170px;
     font-family: Arial, sans-serif;
     font-size: 25px;
@@ -145,4 +143,8 @@ html {
 .scroll-lock {
     overflow: hidden;
     height: 100vh;
+}
+
+.hidden{
+    display:none;
 }

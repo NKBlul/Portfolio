@@ -7,22 +7,24 @@
 </head>
 
 <body class="scroll-lock">
-    <section class="topbox">
-        <div class="content">
-            <a href="#">Hansen Harly</a>
-            <p>Unity & C# Game Developer</p>
-        </div>
+    <section class="hidden">
+        <section class="topbox">
+            <div class="content">
+                <a href="#">Hansen Harly</a>
+                <p>Unity & C# Game Developer</p>
+            </div>
 
-        <section class="right-links">
-            <div class="content"><a href="#intro">About</a></div>
-            <div class="content"><a href="#portfolio">Portfolio</a></div>
-            <div class="content">Resume</div>
-            <div class="content">Contact</div>
+            <section class="right-links">
+                <div class="content"><a href="#intro">About</a></div>
+                <div class="content"><a href="#portfolio">Portfolio</a></div>
+                <div class="content">Resume</div>
+                <div class="content">Contact</div>
+            </section>
         </section>
     </section>
 
     <section class="opening">
-        <img src="images/bg1.png" alt="background" class="bg">
+        <img src="images/bg.png" alt="background" class="bg">
         <a href="#intro"><img src="images/catidle.gif" alt="catidle" class="catidle"></a>
         <img src="images/speechbubble.gif" alt="speechbubble" class="speechbubble">
     </section>
@@ -79,11 +81,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cat = document.querySelector('.catidle');
+            const topbox = document.querySelector('.hidden');
 
             if (cat) {
                 cat.addEventListener('click', () => {
                     console.log("Cat was clicked!");
                     document.body.classList.remove('scroll-lock');
+                    topbox.classList.remove('hidden');
                 });
             }
         });
