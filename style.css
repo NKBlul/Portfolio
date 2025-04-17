@@ -141,7 +141,7 @@ html {
 }
 
 .scroll-lock {
-    overflow: hidden;
+    /*overflow: hidden;*/
     height: 100vh;
 }
 

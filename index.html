@@ -81,15 +81,24 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cat = document.querySelector('.catidle');
-            const topbox = document.querySelector('.hidden');
+            const topbox = document.querySelector('.hidden'); // Correct selector for topbox (not hidden)
 
             if (cat) {
                 cat.addEventListener('click', () => {
                     console.log("Cat was clicked!");
                     document.body.classList.remove('scroll-lock');
-                    topbox.classList.remove('hidden');
+                    topbox.classList.remove('hidden'); // Show topbox after cat click
                 });
             }
+
+            window.addEventListener('scroll', () => {
+                console.log('User is scrolling!');
+                if (window.scrollY > 10) { // Adjust the scroll position as needed
+                    topbox.classList.remove('hidden'); // Show topbox when scrolled
+                }
+            });
+
+
         });
     </script>
 
