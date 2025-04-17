@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="scroll-lock">
     <section class="topbox">
         <div class="content">
             <a href="index.html">Hansen Harly</a>
@@ -74,6 +74,19 @@
             <p class="project-name">What To...</p>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cat = document.querySelector('.catidle');
+
+            if (cat) {
+                cat.addEventListener('click', () => {
+                    console.log("Cat was clicked!");
+                    document.body.classList.remove('scroll-lock');
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
