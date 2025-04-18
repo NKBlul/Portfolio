@@ -120,12 +120,14 @@ p {
     gap: 20px;
     justify-content: center;
     text-align: center;
+    margin-top: -60px;
 }
 
 .portfolio {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .portfolio-video {
@@ -135,12 +137,13 @@ p {
 
 .portfolio-box {
     width: 500px;
-    height: 300px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: start;
     margin-top: -108px;
     display:table-column;
+    outline: 2px solid green;
 }
 
 .project-name {
