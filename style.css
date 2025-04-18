@@ -137,34 +137,55 @@ p {
 
 .portfolio-box {
     width: 500px;
-    height: 200px;
+    height: 310px;
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
     margin-top: -108px;
-    display:table-column;
-    outline: 2px solid green;
+    display: table-column;
+    background-color: #1F1F1F;
+    position: relative;
+}
+
+.portfolio-box:hover {
+    cursor: pointer; /* Show pointer on hover */
+    pointer-events: auto;
+    opacity: 80%;
 }
 
 .project-name {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
     text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
 }
 
 .role {
-    font-size: 19px;
-    margin-top: -5px;
+    font-size: 25px;
+    margin-top: -0px;
     margin-bottom: 5px;
     text-align: left;
+    margin-left: 10px;
 }
 
 .portfolio-description {
-    font-size: 18px;
+    font-size: 22px;
     text-align: left;
     margin-top: 15px;
-    color: #DCC7FF
+    color: #DCC7FF;
+    margin-left: 10px;
+
+}
+
+.view-more {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 22px;
+    text-align: left;
+    position: absolute;
+    bottom: 10px;
 }
 
 html {
@@ -172,7 +193,6 @@ html {
 }
 
 .scroll-lock {
-    /*overflow: hidden;*/
     height: 100vh;
 }
 
