@@ -133,10 +133,35 @@ p {
     height: 500px;
 }
 
+.portfolio-box {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    margin-top: -108px;
+    display:table-column;
+}
+
 .project-name {
-    margin-top: -100px;
     font-weight: bold;
     font-size: 20px;
+    margin: 0;
+    text-align: left;
+}
+
+.role {
+    font-size: 19px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.portfolio-description {
+    font-size: 18px;
+    text-align: left;
+    margin-top: 15px;
+    color: #DCC7FF
 }
 
 html {
@@ -150,6 +175,36 @@ html {
 
 .hidden{
     display:none;
+}
+
+.skill-container {
+    margin-top: 25px;
+    display: flex;
+    gap: 12px; 
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.skill-list {
+    min-width: 90px;
+    max-width: 300px;
+    height: 60px;
+    outline: 2px solid #26a69a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    padding: 0 10px;
+    white-space: nowrap;
+}
+
+.Education {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.school{
+    text-align:center;
 }
 
 .box {
