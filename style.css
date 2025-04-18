@@ -156,6 +156,41 @@ html {
     position: relative;
     left: -170px;
     width: calc(100% + 340px); /* 170 * 2 */
-    height: 50px;
-    background-color: lightblue;
+    height: 170px;
+    background-color: dimgrey;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    text-align: center;
+}
+
+.logo-container {
+    display: flex;
+    gap: 55px; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+}
+
+.name {
+    margin: 5px 0 0;
+    font-size: 15px;
+    color: white;
+}
+
+section .box {
+    padding-bottom: 30px;
 }
