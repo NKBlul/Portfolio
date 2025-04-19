@@ -45,12 +45,12 @@
             <video class="portfolio-video" autoplay loop muted>
                 <source src="videos/Portfolio1.mp4" type="video/mp4">
             </video>
-            <div class="portfolio-box">
+            <div class="portfolio-box" data-modal="hellscapeModal">
                 <p class="project-name">HellScape</p>
                 <p class="role"> Solo Developer </p>
                 <p class="portfolio-description">
                     A 2D top-down survival shooter, focuses on survival and powerup.
-                    Developed in Uunity uusing C#, this project features fast paced gameplay, enemy AI and gimmicks, and difficulty curve.
+                    Developed in Unity using C#, this project features fast paced gameplay, enemy AI and gimmicks, and difficulty curve.
                     Designed with pixel-art visuals for desktop play.
                 </p>
                 <p class="view-more">View More</p>
@@ -61,7 +61,7 @@
             <video class="portfolio-video" autoplay loop muted>
                 <source src="videos/Portfolio2.mp4" type="video/mp4">
             </video>
-            <div class="portfolio-box">
+            <div class="portfolio-box" data-modal="destroyerModal">
                 <p class="project-name">Destroyer</p>
                 <p class="role"> Gameplay Programmer </p>
                 <p class="portfolio-description">
@@ -77,7 +77,7 @@
             <video class="portfolio-video" autoplay loop muted>
                 <source src="videos/Portfolio5.mp4" type="video/mp4">
             </video>
-            <div class="portfolio-box">
+            <div class="portfolio-box" data-modal="whattooModal">
                 <p class="project-name">What To...</p>
                 <p class="role">Solo Developer</p>
                 <p class="portfolio-description">
@@ -97,8 +97,7 @@
             <video class="portfolio-video" autoplay loop muted>
                 <source src="videos/Portfolio3.mp4" type="video/mp4">
             </video>
-            <div class="portfolio-box">
-
+            <div class="portfolio-box" data-modal="monsterslayerModal">
                 <p class="project-name">Monster Slayer</p>
                 <p class="role">Solo Developer</p>
                 <p class="portfolio-description">
@@ -115,8 +114,7 @@
             <video class="portfolio-video" autoplay loop muted>
                 <source src="videos/portfolio4.mp4" type="video/mp4">
             </video>
-            <div class="portfolio-box">
-
+            <div class="portfolio-box" data-modal="silenthallModal">
                 <p class="project-name">Silent Hall</p>
                 <p class="role">Solo Developer</p>
                 <p class="portfolio-description">
@@ -125,7 +123,6 @@
                     This project focuses on atmosphere, level design, and horror pacing using environmental storytelling and audio design in Unity.
                 </p>
                 <p class="view-more">View More</p>
-
             </div>
         </div>
     </section>
@@ -206,7 +203,51 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
+            <p>Hellscape Modal</p>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="destroyerModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Destroyer Modal</p>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="whattooModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>What too modal</p>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="monsterslayerModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>monster slayer modal</p>
+        </div>
+
+    </div>
+
+    <!-- The Modal -->
+    <div id="silenthallModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>silent hill modal</p>
         </div>
 
     </div>
@@ -215,9 +256,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const cat = document.querySelector('.catidle');
             const topbox = document.querySelector('.hidden'); // Correct selector for topbox (not hidden)
-            const modal1 = document.getElementById("hellscapeModal");
-            const closeBtn = modal1.querySelector(".close");
-            const box = document.querySelector(".portfolio-box");
 
             if (cat) {
                 cat.addEventListener('click', () => {
@@ -234,24 +272,31 @@
                 }
             });
 
-            if (box) {
-                box.addEventListener('click', () => {
-                    console.log("Cat was clicked!");
-                    modal1.style.display = "block";
-                });
-            }
+            const portfolioBoxes = document.querySelectorAll('.portfolio-box');
+            const modals = document.querySelectorAll('.modal');
 
-            // When the user clicks on <span> (x), close the modal
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
-                    modal1.style.display = "none";
-                });
-            }
+            portfolioBoxes.forEach(box => {
+                const modalId = box.dataset.modal;
+                const modal = document.getElementById(modalId);
 
+                if (modal) {
+                    const closeBtn = modal.querySelector('.close');
 
-            window.addEventListener('click', (event) => {
-                if (event.target === modal1) {
-                    modal1.style.display = "none";
+                    box.addEventListener('click', () => {
+                        modal.style.display = 'block';
+                    });
+
+                    if (closeBtn) {
+                        closeBtn.addEventListener('click', () => {
+                            modal.style.display = 'none';
+                        });
+                    }
+
+                    window.addEventListener('click', (event) => {
+                        if (event.target === modal) {
+                            modal.style.display = 'none';
+                        }
+                    });
                 }
             });
 
