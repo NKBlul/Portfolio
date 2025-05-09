@@ -276,17 +276,15 @@ section .box {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    /*padding-top: 100px;*/ /* Location of the box */
+    z-index: 10000; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
-    height: 100vh; /* Full height */
+    height: 100%; /* Full height */
     overflow-x: auto;
     overflow-y: hidden;
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    z-index: 10000;
     box-sizing: border-box;
 }
 
@@ -301,7 +299,7 @@ section .box {
     overflow-y: auto;
     box-sizing: border-box;
     border-radius: 10px;
-    position:relative;
+    position: relative;
 }
 
 .modal-video {
@@ -328,6 +326,13 @@ section .box {
     border-radius: 8px;
     padding: 15px;
     box-sizing: border-box;
+}
+
+.modal-images {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 200px;
 }
 
 .modal-title{
@@ -358,4 +363,49 @@ section .box {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.modal-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+}
+
+.carousel-image {
+    width: auto;
+    height: auto;
+    display: none;
+    border-radius: 12px;
+}
+
+.carousel-image.active {
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
 }
