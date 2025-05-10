@@ -234,10 +234,10 @@
             <div class="modal-carousel">
                 <button class="carousel-btn prev">&#10094;</button>
                 <div class="carousel-images">
-                    <img src="images/hellscape/1.png" class="carousel-image active" alt="screenshot 1">
+                    <img src="images/hellscape/1.png" class="carousel-image" alt="screenshot 1">
                     <img src="images/hellscape/2.png" class="carousel-image" alt="screenshot 2">
                     <img src="images/hellscape/3.png" class="carousel-image" alt="screenshot 3">
-                    <img src="images/hellscape/4.png" class="carousel-image active" alt="screenshot 4">
+                    <img src="images/hellscape/4.png" class="carousel-image" alt="screenshot 4">
                     <img src="images/hellscape/5.png" class="carousel-image" alt="screenshot 5">
                     <img src="images/hellscape/6.png" class="carousel-image" alt="screenshot 6">
                     <img src="images/hellscape/7.png" class="carousel-image" alt="screenshot 7">
@@ -282,8 +282,18 @@
                 </div>
             </div>
 
-            <div class="modal-images">
-                <img src="images/hellscape/1.png" alt="background">
+            <div class="modal-carousel">
+                <button class="carousel-btn prev">&#10094;</button>
+                <div class="carousel-images">
+                    <img src="images/hellscape/1.png" class="carousel-image" alt="screenshot 1">
+                    <img src="images/hellscape/2.png" class="carousel-image" alt="screenshot 2">
+                    <img src="images/hellscape/3.png" class="carousel-image" alt="screenshot 3">
+                    <img src="images/hellscape/4.png" class="carousel-image" alt="screenshot 4">
+                    <img src="images/hellscape/5.png" class="carousel-image" alt="screenshot 5">
+                    <img src="images/hellscape/6.png" class="carousel-image" alt="screenshot 6">
+                    <img src="images/hellscape/7.png" class="carousel-image" alt="screenshot 7">
+                </div>
+                <button class="carousel-btn next">&#10095;</button>
             </div>
         </div>
 
@@ -320,6 +330,17 @@
                         Engine: Unity (C#)
                     </div>
                 </div>
+            </div>
+
+            <div class="modal-carousel">
+                <button class="carousel-btn prev">&#10094;</button>
+                <div class="carousel-images">
+                    <img src="images/whatto/1.png" class="carousel-image" alt="screenshot 1">
+                    <img src="images/whatto/2.png" class="carousel-image" alt="screenshot 2">
+                    <img src="images/whatto/3.png" class="carousel-image" alt="screenshot 3">
+                    <img src="images/whatto/4.png" class="carousel-image" alt="screenshot 4">
+                </div>
+                <button class="carousel-btn next">&#10095;</button>
             </div>
         </div>
 
@@ -401,29 +422,23 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const cat = document.querySelector('.catidle');
-            const topbox = document.querySelector('.hidden'); // Correct selector for topbox (not hidden)
-            const images = document.querySelectorAll('.carousel-image');
-            const nextBtn = document.querySelector('.carousel-btn.next');
-            const prevBtn = document.querySelector('.carousel-btn.prev');
-            let current = 0;
+            const topbox = document.querySelector('.hidden');
 
             if (cat) {
                 cat.addEventListener('click', () => {
                     console.log("Cat was clicked!");
                     document.body.classList.remove('scroll-lock');
-                    topbox.classList.remove('hidden'); // Show topbox after cat click
+                    topbox.classList.remove('hidden');
                 });
             }
 
             window.addEventListener('scroll', () => {
-                console.log('User is scrolling!');
-                if (window.scrollY > 10) { // Adjust the scroll position as needed
-                    topbox.classList.remove('hidden'); // Show topbox when scrolled
+                if (window.scrollY > 10) {
+                    topbox.classList.remove('hidden');
                 }
             });
 
             const portfolioBoxes = document.querySelectorAll('.portfolio-box');
-            const modals = document.querySelectorAll('.modal');
 
             portfolioBoxes.forEach(box => {
                 const modalId = box.dataset.modal;
@@ -434,6 +449,7 @@
 
                     box.addEventListener('click', () => {
                         modal.style.display = 'block';
+                        setupCarousel(modal); // Initialize the carousel for this modal
                     });
 
                     if (closeBtn) {
@@ -450,28 +466,38 @@
                 }
             });
 
-            function showImage(index) {
-                images.forEach((img, i) => {
-                    img.classList.remove('active');
-                    if (i === index) img.classList.add('active');
-                });
+            function setupCarousel(modal) {
+                const images = modal.querySelectorAll('.carousel-image');
+                const nextBtn = modal.querySelector('.carousel-btn.next');
+                const prevBtn = modal.querySelector('.carousel-btn.prev');
+                let current = 0;
+
+                function showImage(index) {
+                    images.forEach((img, i) => {
+                        img.classList.remove('active');
+                        img.style.display = i === index ? 'block' : 'none';
+                    });
+                }
+
+                if (!images.length) return; // no images to show
+
+                showImage(current); // Show first image
+
+                if (nextBtn && prevBtn) {
+                    nextBtn.onclick = () => {
+                        current = (current + 1) % images.length;
+                        showImage(current);
+                    };
+
+                    prevBtn.onclick = () => {
+                        current = (current - 1 + images.length) % images.length;
+                        showImage(current);
+                    };
+                }
             }
-
-            nextBtn.addEventListener('click', () => {
-                current = (current + 1) % images.length;
-                showImage(current);
-            });
-
-            prevBtn.addEventListener('click', () => {
-                current = (current - 1 + images.length) % images.length;
-                showImage(current);
-            });
-
-            // Show the first image on load
-            showImage(current);
-
         });
     </script>
+
 
 </body>
 </html>

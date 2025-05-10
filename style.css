@@ -371,18 +371,27 @@ section .box {
     max-width: 800px;
     margin: 30px auto;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .carousel-images {
     display: flex;
-    transition: transform 0.4s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 300px; /* optional to keep height stable */
 }
 
 .carousel-image {
     width: auto;
     height: auto;
+    max-width: 1000px;
+    max-height: 600px;
     display: none;
     border-radius: 12px;
+    margin: 0 auto;
 }
 
 .carousel-image.active {
