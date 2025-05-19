@@ -418,3 +418,14 @@ section .box {
 .carousel-btn.next {
     right: 10px;
 }
+
+.modal-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-link a {
+    display: block;
+    margin: 5px 0;
+    text-decoration: underline;
+}
